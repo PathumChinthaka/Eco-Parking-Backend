@@ -1,0 +1,8 @@
+.env
+node_modules
+application.yml
+
+# Ignore node_modules in vehicle-service
+vehicle-service/node_modules
+parking-space-service/.venv
+vehicle-service/.env

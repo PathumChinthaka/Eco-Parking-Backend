@@ -2,6 +2,10 @@ from flask import Flask
 from config import Config
 from database import db, ma
 from routes import bp
+from eureka import register_with_eureka, start_heartbeat
+from configClient import SpringConfigClient
+
+remote_config = SpringConfigClient().fetch()
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -13,4 +17,6 @@ app.register_blueprint(bp, url_prefix='/spaces')
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(port=5001)
+        register_with_eureka()
+        start_heartbeat()
+    app.run(port=remote_config['PORT'])

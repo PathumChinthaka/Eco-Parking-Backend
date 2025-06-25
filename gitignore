@@ -6,3 +6,4 @@ application.yml
 vehicle-service/node_modules
 parking-space-service/.venv
 vehicle-service/.env
+.idea

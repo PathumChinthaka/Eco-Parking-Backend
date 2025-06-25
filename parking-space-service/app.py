@@ -12,7 +12,7 @@ app.config.from_object(Config)
 
 db.init_app(app)
 ma.init_app(app)
-app.register_blueprint(bp, url_prefix='/spaces')
+app.register_blueprint(bp)
 
 if __name__ == '__main__':
     with app.app_context():

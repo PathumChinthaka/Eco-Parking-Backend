@@ -17,11 +17,11 @@ spring:
         - id: parking-service
           uri: lb://PARKING-SERVICE
           predicates:
-            - Path=/spaces/**
+            - Path=/api/spaces/**
         - id: vehicle-service
-          uri: lb://VEHICLE-SERVICE
+          uri: http://localhost:8090
           predicates:
-            - Path=/vehicles/**
+            - Path=/api/vehicles/**
         - id: payment-service
           uri: lb://PAYMENT-SERVICE
           predicates:
@@ -31,3 +31,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoint:
+    gateway:
+      enabled: true  # Explicitly enable gateway actuator
+  endpoints:
+    web:
+      exposure:
+        include: api-gateway  # Expose gateway endpoints

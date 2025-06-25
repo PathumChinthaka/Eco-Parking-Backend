@@ -7,7 +7,7 @@ const eureka = new Eureka({
     hostName: 'localhost',
     ipAddr: '127.0.0.1',
     port: {
-      '$': 3000,
+      '$': 8090,
       '@enabled': true
     },
     vipAddress: 'vehicle-service',
@@ -15,8 +15,7 @@ const eureka = new Eureka({
       '@class': 'com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo',
       name: 'MyOwn'
     },
-    healthCheckUrl: 'http://localhost:3000/health',  
-    statusPageUrl: 'http://localhost:3000/info'      
+    healthCheckUrl: 'http://localhost:8090/health',  
   },
   eureka: {
     host: 'localhost',

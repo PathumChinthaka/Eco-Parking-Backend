@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from models import ParkingSpace, ParkingSpaceSchema
 from database import db
 
-bp = Blueprint('api', __name__)
+bp = Blueprint('api', __name__, url_prefix='/api')
 schema = ParkingSpaceSchema()
 schemas = ParkingSpaceSchema(many=True)
 

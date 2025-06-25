@@ -39,7 +39,7 @@ def start_heartbeat():
     def heartbeat():
         while True:
             try:
-                res = requests.put(f"{EUREKA_SERVER}/apps/{SERVICE_NAME}/{HOSTNAME}:{SERVICE_NAME}:{PORT}")
+                res = requests.put(f"{EUREKA_SERVER}/apps/{SERVICE_NAME}/parking-service-instance-1")
                 print("Eureka heartbeat sent:", res.status_code)
             except Exception as e:
                 print("Eureka heartbeat failed:", e)
